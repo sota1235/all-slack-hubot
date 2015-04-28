@@ -19,6 +19,9 @@
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.3.0",
     "hubot-youtube": "^0.1.2",
+    "hubot-12horoscopes": "*",
+    "hubot-shubot": "*",
+    "hubot-google-images": "*",
     "lodash": "*"
   },
   "engines": {
