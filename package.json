@@ -23,7 +23,8 @@
     "hubot-shubot": "*",
     "hubot-google-images": "*",
     "hubot-rss-reader": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "coffee-script": "*"
   },
   "engines": {
     "node": "0.10.x"
