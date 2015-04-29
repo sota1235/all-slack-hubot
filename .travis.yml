@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+deploy:
+  provider: heroku
+  api_key:
+    secure: uJjrUfytiJhVYiuTZm9kkgc78h/oc3qVR8kG29h2oF/WSh0oDKAPlTeRhV3PfX84/uRVShtP+iyumHHtmN37cRsyUpM9lzvkU0915Ns0RfYVmXyiQkdA0Fyc3qVZ7+yIAKPLW2IU7w3xaGaghUbScHsVDrMsipyJusAK8Tl3F2U=
+  app: slack-hubot-fresh15
+  on:
+    repo: sota1235/slack-fresh15-hubot
