@@ -2,6 +2,9 @@
   "name": "istyle-fresh15-hubot",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "test": "grunt test"
+  },
   "author": "sota1235 <sota1235@gmail.com>",
   "description": "hubot for istyle15 fresh",
   "dependencies": {
