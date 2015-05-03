@@ -9,6 +9,7 @@
   "description": "hubot for istyle15 fresh",
   "dependencies": {
     "coffee-script": "*",
+    "cron": "^1.0.9",
     "hubot": "^2.12.0",
     "hubot-12horoscopes": "*",
     "hubot-anonymous-post": "0.0.3",
@@ -27,7 +28,8 @@
     "hubot-shubot": "*",
     "hubot-slack": "^3.3.0",
     "hubot-youtube": "^0.1.2",
-    "lodash": "*"
+    "lodash": "*",
+    "time": "^0.11.2"
   },
   "engines": {
     "node": "0.10.x"
