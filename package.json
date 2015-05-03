@@ -8,7 +8,10 @@
   "author": "sota1235 <sota1235@gmail.com>",
   "description": "hubot for istyle15 fresh",
   "dependencies": {
+    "coffee-script": "*",
     "hubot": "^2.12.0",
+    "hubot-12horoscopes": "*",
+    "hubot-anonymous-post": "0.0.3",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.1.4",
     "hubot-google-translate": "^0.1.0",
@@ -17,16 +20,14 @@
     "hubot-maps": "0.0.2",
     "hubot-pugme": "^0.1.0",
     "hubot-redis-brain": "0.0.2",
+    "hubot-rss-reader": "*",
     "hubot-rules": "^0.1.0",
     "hubot-scripts": "^2.5.16",
     "hubot-shipit": "^0.2.0",
+    "hubot-shubot": "*",
     "hubot-slack": "^3.3.0",
     "hubot-youtube": "^0.1.2",
-    "hubot-12horoscopes": "*",
-    "hubot-shubot": "*",
-    "hubot-rss-reader": "*",
-    "lodash": "*",
-    "coffee-script": "*"
+    "lodash": "*"
   },
   "engines": {
     "node": "0.10.x"
