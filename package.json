@@ -27,6 +27,7 @@
     "hubot-shipit": "^0.2.0",
     "hubot-shubot": "*",
     "hubot-slack": "^3.3.0",
+    "hubot-sushiyuki": "0.0.8",
     "hubot-youtube": "^0.1.2",
     "lodash": "*",
     "time": "^0.11.2"
