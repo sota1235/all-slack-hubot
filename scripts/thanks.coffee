@@ -16,7 +16,9 @@ module.exports = (robot) ->
 
   changePoint = (name) ->
     data  = getPoints()
-    data[name] += 1
+    point = data[name] or 0
+    point += 1
+    data[name] = point
     robot.brain.set THANKS_POINT, data
     return data[name]
 
