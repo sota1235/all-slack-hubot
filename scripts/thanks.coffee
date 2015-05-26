@@ -14,10 +14,10 @@ module.exports = (robot) ->
   getPoints = () ->
     return robot.brain.get(THANKS_POINT) or {}
 
-  changePoint = (name) ->
+  changePoint = (name, range) ->
     data  = getPoints()
     point = data[name] or 0
-    point += 1
+    point += 1 if range is "+" else -1
     data[name] = point
     robot.brain.set THANKS_POINT, data
     return data[name]
@@ -30,5 +30,13 @@ module.exports = (robot) ->
 
   robot.respond /thanks (.+)/i, (msg) ->
     name = msg.match[1].split(/\s+/)
-    new_point = changePoint(name)
-    msg.send "#{name}: #{new_point}"
+    new_point = changePoint(name, "+")
+    msg.send "#{name}が感謝されました。現在#{new_point}ポイントです。"
+
+  robot.respond /nothanks (.+)/i, (msg) ->
+    name = msg.match[1].split(/\s+/)
+    new_point = changePoint(name, "-")
+    msg.send "#{name}が減点されました。現在#{new_point}ポイントです。"
+
+  robot.hear /ありがとう/, (msg) ->
+    msg.send "感謝の心を大切に…。ぜひhubot thanks nameをご活用ください！"
