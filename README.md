@@ -13,6 +13,8 @@ masterにpushされると自動でherokuにデプロイされます。
 
 ### Demo
 
+![](http://i.gyazo.com/2dc561e10ca885f2d1422ee481962c29.png)
+
 ### Requirement
 
 ### Install
