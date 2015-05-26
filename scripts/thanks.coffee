@@ -17,7 +17,7 @@ module.exports = (robot) ->
   changePoint = (name, range) ->
     data  = getPoints()
     point = data[name] or 0
-    point += 1 if rangie is "+" else -1
+    point += if rangie is "+" then 1 else -1
     data[name] = point
     robot.brain.set THANKS_POINT, data
     return data[name]
