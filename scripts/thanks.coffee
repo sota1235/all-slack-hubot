@@ -60,7 +60,7 @@ module.exports = (robot) ->
     new_point = changePoint(name, "+")
     msg.send "#{name}が感謝されました。現在#{new_point}ポイントです。"
 
-  # お友達を減点(_´`)
+  # お友達を減点(´_`)
   robot.respond /nothanks (.+)/i, (msg) ->
     name = msg.match[1].split(/\s+/)
     new_point = changePoint(name, "-")
