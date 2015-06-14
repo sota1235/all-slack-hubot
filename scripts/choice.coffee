@@ -3,6 +3,7 @@
 #
 # Commands:
 #   hubot choice ほげ もげ ふが
+#   hubot choice set <group name> <group elements>
 #
 # Author:
 #   @sota1235
