@@ -3,7 +3,7 @@
 #
 # Commands:
 #   hubot choice ほげ もげ ふが -- 引数からランダムにchoice
-#   hubot choice ${groupname} -- 登録されたグループの要素の中からランダムにchoice
+#   hubot choice $<groupname> -- 登録されたグループの要素の中からランダムにchoice
 #   hubot choice set <group name> <group elements> -- グループを設定
 #   hubot choice delete <group name> -- グループを削除
 #   hubot dump -- 登録されているグループ一覧を表示
@@ -70,6 +70,7 @@ module.exports = (robot) ->
     choice = _.sample items
     msg.send "厳正な抽選の結果、「#{choice}」に決まりました"
 
+  # グループを設定
   robot.respond /choice set (.+)/i, (msg) ->
     items = msg.match[1].split(/\s+/)
     groupName    = items[0]
