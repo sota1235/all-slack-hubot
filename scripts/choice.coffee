@@ -5,6 +5,7 @@
 #   hubot choice ほげ もげ ふが -- 引数からランダムにchoice
 #   hubot choice ${groupname} -- 登録されたグループの要素の中からランダムにchoice
 #   hubot choice set <group name> <group elements> -- グループを設定
+#   hubot choice delete <group name> -- グループを削除
 #   hubot dump -- 登録されているグループ一覧を表示
 #
 # Author:
@@ -35,6 +36,14 @@ module.exports = (robot) ->
     setData(data)
     return
 
+  # グループを削除
+  deleteGroup = (groupName) ->
+    data = getData()
+    if data[groupName] is undefined
+      return false
+    delete data[groupName]
+    return true
+
   # グループ要素を取得
   getGroupElem = (groupName) ->
     data = getData()
@@ -45,9 +54,10 @@ module.exports = (robot) ->
 
   robot.respond /choice (.+)/i, (msg) ->
     items = msg.match[1].split(/\s+/)
+    head  = items[0] # for judge command is choice or not
 
-    # set, dumpの場合、return
-    if items[0] is 'set' or items[0] is 'dump'
+    # set, dump,deleteの場合、return
+    if head is 'set' or head is 'dump' or head is 'delete'
       return
 
     # 第一引数がグループ名指定の場合
@@ -67,6 +77,14 @@ module.exports = (robot) ->
     groupElement = items
     setGroup groupName, groupElement
     msg.send "グループ：#{groupName}を設定しました"
+
+  # グループを削除
+  robot.respond /choice delete (.+)/i, (msg) ->
+    groupName = msg.match[1].split(/\s+/)[0]
+    if deleteGroup groupName
+      msg.send "グループ：#{groupName}を削除しました。"
+    else
+      msg.send "グループ：#{groupName}は存在しません。"
 
   # for debug
   robot.respond /choice dump/i, (msg) ->
