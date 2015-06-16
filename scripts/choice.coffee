@@ -79,6 +79,9 @@ module.exports = (robot) ->
     items = msg.match[1].split(/\s+/)
     groupName    = items[0]
     items.shift()
+    if items.length is 0
+      msg.send "グループの中身が空っぽだよぉ(´・ω・｀)"
+      return
     groupElement = items
     setGroup groupName, groupElement
     msg.send "グループ：#{groupName}を設定しました"
