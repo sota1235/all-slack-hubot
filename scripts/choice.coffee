@@ -29,33 +29,43 @@ module.exports = (robot) ->
     robot.brain.set CHOICE, data
 
   # グループをセット
-  setGroup = (groupName, groupElement) ->
-    data = getData()
-    data[groupName] = groupElement
-    setData(data)
+  setGroup = (room, groupName, groupElement) ->
+    data     = getData()
+    roomData = data[room] or {}
+    roomData[groupName] = groupElement
+    data[room] = roomData
+    setData data
     return
 
   # グループを削除
-  deleteGroup = (groupName) ->
-    data = getData()
-    if data[groupName] is undefined
+  deleteGroup = (room, groupName) ->
+    data     = getData()
+    roomData = data[room] or {}
+    if roomData[groupName] is undefined
       return false
-    delete data[groupName]
+    delete roomData[groupName]
+    console.log _.size data[room]
+    # TODO:空っぽのroom削除
+    # なぜか動かない
+    if _.size data[room] is 0
+      delete data[room]
     return true
 
   # グループ要素を取得
-  getGroupElem = (groupName) ->
-    data = getData()
-    if data[groupName] is undefined
+  getGroupElem = (room, groupName) ->
+    data     = getData()
+    roomData = data[room] or {}
+    if roomData[groupName] is undefined
       return false
     else
-      return data[groupName]
+      return roomData[groupName]
 
   ###
   # 引数からランダムにchoice
   ###
   robot.respond /choice (.+)/i, (msg) ->
     items = msg.match[1].split(/\s+/)
+    room  = msg.message.room
     head  = items[0] # for judge command is choice or not
 
     # set, dump,deleteの場合、return
@@ -64,7 +74,7 @@ module.exports = (robot) ->
 
     # 第一引数がグループ名指定の場合
     if /\$(.+)/.test items[0]
-      items = getGroupElem items[0].substring(1)
+      items = getGroupElem room, items[0].substring(1)
       if not items
         msg.send "無効なグループ名です"
         return
@@ -77,13 +87,14 @@ module.exports = (robot) ->
   ###
   robot.respond /choice set (.+)/i, (msg) ->
     items = msg.match[1].split(/\s+/)
+    room  = msg.message.room
     groupName    = items[0]
     items.shift()
     if items.length is 0
       msg.send "グループの中身が空っぽだよぉ(´・ω・｀)"
       return
     groupElement = items
-    setGroup groupName, groupElement
+    setGroup room, groupName, groupElement
     msg.send "グループ：#{groupName}を設定しました"
 
   ###
@@ -91,7 +102,8 @@ module.exports = (robot) ->
   ###
   robot.respond /choice delete (.+)/i, (msg) ->
     groupName = msg.match[1].split(/\s+/)[0]
-    if deleteGroup groupName
+    room      = msg.message.room
+    if deleteGroup room, groupName
       msg.send "グループ：#{groupName}を削除しました。"
     else
       msg.send "グループ：#{groupName}は存在しません。"
