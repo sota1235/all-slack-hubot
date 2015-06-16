@@ -6,7 +6,7 @@
 #   hubot choice $<groupname> -- 登録されたグループの要素の中からランダムにchoice
 #   hubot choice set <group name> <group elements> -- グループを設定
 #   hubot choice delete <group name> -- グループを削除
-#   hubot dump -- 登録されているグループ一覧を表示
+#   hubot choice dump -- 登録されているグループ一覧を表示
 #
 # Author:
 #   @sota1235
@@ -15,7 +15,6 @@
 #   https://github.com/masuilab/slack-hubot/blob/master/scripts/choice.coffee
 
 _ = require 'lodash'
-
 
 module.exports = (robot) ->
   CHOICE = 'choice_data'
@@ -52,6 +51,9 @@ module.exports = (robot) ->
     else
       return data[groupName]
 
+  ###
+  # 引数からランダムにchoice
+  ###
   robot.respond /choice (.+)/i, (msg) ->
     items = msg.match[1].split(/\s+/)
     head  = items[0] # for judge command is choice or not
@@ -70,7 +72,9 @@ module.exports = (robot) ->
     choice = _.sample items
     msg.send "厳正な抽選の結果、「#{choice}」に決まりました"
 
+  ###
   # グループを設定
+  ###
   robot.respond /choice set (.+)/i, (msg) ->
     items = msg.match[1].split(/\s+/)
     groupName    = items[0]
@@ -79,7 +83,9 @@ module.exports = (robot) ->
     setGroup groupName, groupElement
     msg.send "グループ：#{groupName}を設定しました"
 
+  ###
   # グループを削除
+  ###
   robot.respond /choice delete (.+)/i, (msg) ->
     groupName = msg.match[1].split(/\s+/)[0]
     if deleteGroup groupName
@@ -87,7 +93,9 @@ module.exports = (robot) ->
     else
       msg.send "グループ：#{groupName}は存在しません。"
 
+  ###
   # for debug
+  ###
   robot.respond /choice dump/i, (msg) ->
     data = getData()
     if _.size(data) is 0
