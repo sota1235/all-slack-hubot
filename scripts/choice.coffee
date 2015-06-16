@@ -72,14 +72,19 @@ module.exports = (robot) ->
     if head is 'set' or head is 'dump' or head is 'delete'
       return
 
-    # 第一引数がグループ名指定の場合
-    if /\$(.+)/.test items[0]
-      items = getGroupElem room, items[0].substring(1)
-      if not items
-        msg.send "無効なグループ名です"
-        return
+    # 変数かどうか判別
+    elements = []
+    for i in items
+      if /\$(.+)/.test i
+        element = getGroupElem room, i.substring 1
+        if not element
+          msg.send "#{i}は無効なグループ名です"
+          return
+        elements = elements.concat element
+      else
+        elements = elements.concat [i]
 
-    choice = _.sample items
+    choice = _.sample elements
     msg.send "厳正な抽選の結果、「#{choice}」に決まりました"
 
   ###
