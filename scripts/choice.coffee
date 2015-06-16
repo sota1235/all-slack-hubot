@@ -101,5 +101,4 @@ module.exports = (robot) ->
     if _.size(data) is 0
       msg.send "現在登録されているグループはありません"
       return
-    for gname, gelm of data
-      msg.send "#{gname}: #{gelm.join()}"
+    msg.send JSON.stringify data, null, 2
