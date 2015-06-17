@@ -66,7 +66,7 @@ module.exports = (robot) ->
   robot.respond /choice (.+)/i, (msg) ->
     items = msg.match[1].split(/\s+/)
     room  = msg.message.room
-    head  = items[0] # for judge command is choice or not
+    head  = items[0] # for judging command is choice or not
 
     # set, dump,deleteの場合、return
     if head is 'set' or head is 'dump' or head is 'delete'
