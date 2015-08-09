@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export HUBOT_SLACK_TOKEN=<Your token>
+export HUBOT_SLACK_TEAM=<Your team name>
+export HUBOT_SLACK_BOTNAME=<Your bot name>
+
+bin/hubot --adapter slack --name <Your bot name>
