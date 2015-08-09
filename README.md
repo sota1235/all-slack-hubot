@@ -19,5 +19,14 @@ masterにpushされると自動でherokuにデプロイされます。
 
 ### Install
 
+- VPS
+
+`start.sh.sample`をコピーして起動用スクリプトを作成、実行してください。
+
+その際、以下のnpmモジュールが必要です。
+
+- coffee-script
+- forever
+
 ### Contribution
 
