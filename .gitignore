@@ -3,3 +3,4 @@ node_modules
 .hubot_history
 .python-version
 start.sh
+npm-debug.log
