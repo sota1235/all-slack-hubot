@@ -21,12 +21,20 @@ masterにpushされると自動でherokuにデプロイされます。
 
 - VPS
 
+**Start hubot**
+
 `start.sh.sample`をコピーして起動用スクリプトを作成、実行してください。
 
 その際、以下のnpmモジュールが必要です。
 
 - coffee-script
 - forever
+
+**Restart hubot**
+
+```shell
+$ forever restart {your hubot's process number}
+```
 
 ### Contribution
 
