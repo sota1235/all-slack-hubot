@@ -30,6 +30,7 @@
     "hubot-slack": "^3.3.0",
     "hubot-sushiyuki": "0.0.10",
     "hubot-youtube": "^0.1.2",
+    "hubot-reviewr-choice": "0.0.2",
     "lodash": "*",
     "time": "^0.11.2"
   },
