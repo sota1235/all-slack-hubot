@@ -22,6 +22,7 @@
     "hubot-osietekun": "^0.3.3",
     "hubot-pugme": "^0.1.0",
     "hubot-redis-brain": "0.0.2",
+    "hubot-reviewr-choice": "0.0.2",
     "hubot-rss-reader": "*",
     "hubot-rules": "^0.1.0",
     "hubot-scripts": "^2.5.16",
@@ -30,7 +31,6 @@
     "hubot-slack": "^3.3.0",
     "hubot-sushiyuki": "0.0.10",
     "hubot-youtube": "^0.1.2",
-    "hubot-reviewr-choice": "0.0.2",
     "lodash": "*",
     "time": "^0.11.2"
   },
