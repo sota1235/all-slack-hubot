@@ -13,4 +13,4 @@
 module.exports = (robot) ->
   pattern = /((?:test|テスト)[をは]?(?:[書か]いてい?ない|[書か]きたくない))$/i
   robot.hear pattern, (res) ->
-    res.send "#{res.match[1]}とかお前それ @aboy の前でも同じこと言えんの？"
+    res.send "#{res.match[1]}とかお前それ @yodatomato の前でも同じこと言えんの？"
