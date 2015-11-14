@@ -3,4 +3,5 @@ node_modules
 .hubot_history
 .python-version
 start.sh
+start_zohyo.sh
 npm-debug.log
