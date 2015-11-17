@@ -66,7 +66,3 @@ module.exports = (robot) ->
     name = msg.match[1].split(/\s+/)
     new_point = changePoint(name, "-")
     msg.send "#{name}が減点されました。現在#{new_point}ポイントです。"
-
-  # 感謝の気持ちを啓蒙
-  robot.hear /ありがとう|あざっす/, (msg) ->
-    msg.send "感謝の心を大切に…。ぜひhubot thanks nameをご活用ください！"
